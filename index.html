@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque Pikachu - CPGE ECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ecran du Sas Spatial (Porte d'accès) -->
+    <div id="airlock-screen" class="space-door-container">
+        <div class="warning-sign">⚠️ خطر - DANGER - ZONE SÉCURISÉE ⚠️</div>
+        <div class="portal-door">
+            <div class="security-terminal">
+                <h2>الرقم السري مطلوب - Code d'accès requis</h2>
+                <input type="password" id="passcode-input" placeholder="الرمز السري...">
+                <button id="unlock-btn">فتح الباب / Déverrouiller</button>
+                <p id="error-msg" class="hidden">الرقم السري خاطئ! / Code incorrect !</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran Principal de la Bibliothèque -->
+    <div id="main-library" class="library-container hidden">
+        <header>
+            <h1>مرحباً بك في مكتبة بيكاتسو / Bienvenue dans la Bibliothèque Pikachu</h1>
+            <p>هنا ستجد كل ما تريد لاختبارات الاقسام التحضيرية CPGE ECT</p>
+        </header>
+
+        <main>
+            <section class="qcm-section">
+                <h2>وحدة اختبار أسئلة الاختيار من متعد (QCM)</h2>
+                
+                <!-- Sélection de la matière -->
+                <div class="material-select">
+                    <button onclick="loadQuiz('eco')">الاقتصاد العام (L'économie de marché)</button>
+                    <button onclick="loadQuiz('droit')">القانون (La règle de droit)</button>
+                </div>
+
+                <!-- Boîte du Quiz QCM -->
+                <div id="quiz-box" class="hidden">
+                    <h3 id="question-title"></h3>
+                    <div id="options-container" class="options-grid"></div>
+                    <p id="feedback-msg"></p>
+                    <button id="next-btn" class="hidden" onclick="nextQuestion()">السؤال الموالي / Suivant</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Audio Mozart -->
+    <audio id="mozart-audio" src="audio/mozart.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
